@@ -29,7 +29,10 @@ public class DBService {
 		Usuario usuario3 = new Usuario(null, "Marcus", "marcus@gmail.com", pe.encode("789"));
 		usuario3.addPerfil(Perfil.ADMIN);
 		
-		clienteRepository.save(Arrays.asList(usuario1, usuario2, usuario3));
+		Usuario usuario4 = new Usuario(null, "Usuario Padrão", "user@gmail.com", pe.encode("222"));
+		usuario4.addPerfil(Perfil.USUARIO);
+		
+		clienteRepository.save(Arrays.asList(usuario1, usuario2, usuario3, usuario4));
 		
 	}
 }
