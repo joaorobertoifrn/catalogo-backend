@@ -9,6 +9,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.helpc.catalogo.domain.Usuario;
 import br.com.helpc.catalogo.domain.enums.Perfil;
@@ -43,7 +44,8 @@ public class UsuarioService {
 		}
 		return obj;
 	}
-
+	
+	@Transactional
 	public Usuario insert(Usuario obj) {
 		obj.setId(null);
 		obj = repo.save(obj);
