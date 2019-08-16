@@ -55,7 +55,7 @@ public class Movie implements Serializable {
 
 	public Movie(Integer id, String overview, Double popularity, Integer vote_count, Boolean video, String poster_path,
 			Boolean adult, String backdrop_path, String original_language, String original_title, String title,
-			Double vote_average, Date release_date, List<Genre> genres) {
+			Double vote_average, Date release_date) {
 		super();
 		this.id = id;
 		this.overview = overview;
@@ -70,7 +70,6 @@ public class Movie implements Serializable {
 		this.title = title;
 		this.vote_average = vote_average;
 		this.release_date = release_date;
-		this.genres = genres;
 	}
 
 	public Integer getId() {

@@ -7,14 +7,12 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.helpc.catalogo.domain.Usuario;
 import br.com.helpc.catalogo.domain.enums.Perfil;
 import br.com.helpc.catalogo.dto.UsuarioDTO;
-import br.com.helpc.catalogo.dto.UsuarioNewDTO;
 import br.com.helpc.catalogo.repositories.UsuarioRepository;
 import br.com.helpc.catalogo.security.UserSS;
 import br.com.helpc.catalogo.services.exceptions.AuthorizationException;
@@ -23,9 +21,6 @@ import br.com.helpc.catalogo.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class UsuarioService {
-
-	@Autowired
-	private BCryptPasswordEncoder pe;
 
 	@Autowired
 	private UsuarioRepository repo;
@@ -93,11 +88,6 @@ public class UsuarioService {
 
 	public Usuario fromDTO(UsuarioDTO objDto) {
 		return new Usuario(objDto.getId(), objDto.getNome(), objDto.getEmail(), null);
-	}
-
-	public Usuario fromDTO(UsuarioNewDTO objDto) {
-		Usuario cli = new Usuario(null, objDto.getNome(), objDto.getEmail(), pe.encode(objDto.getSenha()));
-		return cli;
 	}
 
 	private void updateData(Usuario newObj, Usuario obj) {
