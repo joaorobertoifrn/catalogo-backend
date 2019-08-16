@@ -53,6 +53,9 @@ public class Movie implements Serializable {
 	)
 	private List<Genre> genres = new ArrayList<>();
 
+	public Movie() {
+	}
+
 	public Movie(Integer id, String overview, Double popularity, Integer vote_count, Boolean video, String poster_path,
 			Boolean adult, String backdrop_path, String original_language, String original_title, String title,
 			Double vote_average, Date release_date) {

@@ -3,9 +3,7 @@ package br.com.helpc.catalogo.dto;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Entity;
 
-@Entity
 public class MovieDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
