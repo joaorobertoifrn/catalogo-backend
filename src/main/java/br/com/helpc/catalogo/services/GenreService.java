@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.helpc.catalogo.domain.Genre;
 import br.com.helpc.catalogo.dto.GenreDTO;
@@ -39,9 +40,11 @@ public class GenreService {
 		return obj;
 	}
 	
+	@Transactional	
 	public Genre insert(Genre obj) {
 		obj.setId(null);
-		return repo.save(obj);
+		obj = repo.save(obj);
+		return obj;
 	}
 	
 	public Genre update(Genre obj) {
