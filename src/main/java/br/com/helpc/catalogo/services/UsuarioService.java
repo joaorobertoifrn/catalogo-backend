@@ -58,7 +58,7 @@ public class UsuarioService {
 		try {
 			repo.delete(id);
 		} catch (DataIntegrityViolationException e) {
-			throw new DataIntegrityException("Não é possível excluir porque há pedidos relacionados");
+			throw new DataIntegrityException("Não é possível excluir.");
 		}
 	}
 
