@@ -1,5 +1,6 @@
 package br.com.helpc.catalogo.resources;
 
+import java.io.Console;
 import java.net.URI;
 import java.util.List;
 
@@ -42,6 +43,7 @@ public class GenreResource {
 	@RequestMapping(method=RequestMethod.POST)
 	public ResponseEntity<Void> insert(@Valid @RequestBody Genre obj) {
 		Genre genre = service.insert(obj);
+		
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
 				.path("/{id}").buildAndExpand(genre.getId()).toUri();
 		return ResponseEntity.created(uri).build();
